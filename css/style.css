@@ -1,3 +1,5 @@
+/* General */
+
 *, *::before, *::before {
     margin: 0;
     padding: 0;
@@ -6,6 +8,111 @@
     font-weight: 600;
 }
 
+html,
+body,
+main {
+    background-color: #191919;
+    color: white;
+}
+
+/* Title */
+
 .content-title {
-    font-size: 2rem;
+    font-size: 2.5rem;
+    text-align: center;
+    font-weight: 700;
+    position: relative;
+    width: max-content;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+.content-title::before {
+    content: '';
+    width: 5rem;
+    height: 4px;
+    background-color: rgb(250, 193, 86);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+/* Buttons */
+
+.filter-btn {
+    border: 1px solid rgb(250, 193, 86);
+    font-size: 1.25rem;
+    border-radius: 5px;
+    padding: 0.25rem .75rem;
+    color: rgb(250, 193, 86);
+    transition: 200ms;
+}
+
+.filter-btn:hover {
+    border: 1px solid white;
+    background-color: rgb(250, 193, 86);
+    color: white;
+}
+
+.filter-btn.active {
+    border: 1px solid white;
+    background-color: rgb(250, 193, 86);
+    color: white;
+}
+
+.restaurant-filters {
+    width: max-content;
+    margin: 4rem auto;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Menu */
+
+.menu-item {
+    margin: 0 auto;
+    width: max-content;
+    display: flex;
+    width: 50rem;
+}
+
+.menu-img {
+    width: 23rem;
+    border: 3px solid rgb(250, 193, 86);
+    border-radius: 5px;
+    margin-right: 1.5rem;
+}
+
+.menu-content {
+    position: relative;
+}
+
+.menu-header {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    font-size: .65rem;
+    letter-spacing: 3px;
+    padding: .5rem 0;
+}
+
+.menu-header::before {
+    content: '';
+    width: 5rem;
+    height: 3px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.menu-price {
+    color: rgb(250, 193, 86);
+}
+
+.menu-text {
+    margin-top: .75rem;
+    font-size: 1rem;
+    color: rgb(158, 158, 158);
+    font-weight: 500;
+    line-height: 1.75rem;
 }
