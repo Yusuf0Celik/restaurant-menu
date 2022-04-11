@@ -2,14 +2,13 @@ console.log('main.js loaded');
 
 const menuDiv = document.querySelector('.menu');
 const filterBtns = document.querySelectorAll('.filter-btn');
+const menuItem = document.querySelectorAll('.menu-item');
 const menuImg = document.querySelector('.menu-img');
 const menuContent = document.querySelector('.menu-content');
 const menuHeader = document.querySelector('.menu-header');
 const menuTitle = document.querySelector('.menu-title');        
 const menuItemPrice = document.querySelector('.menu-item-price');
 const menuText = document.querySelector('.menu-text');
-
-// document.addEventListener('DOMContentLoaded', createMenuItems())
 
 const menu = 
 [
@@ -147,8 +146,9 @@ for (let i = 0; i < filterBtns.length; i++) {
 function filterButton(e) {
   // Get class of target which you clicked on
   const target = e.target.classList[1];
-  const breakfastItem = document.querySelector('breakfast');
-  console.log(breakfastItem);
+  const menuItemArr = Array.prototype.slice.call(menuItem);
+  Array.from(menuItem)
+  console.log(menuItemArr);
   // Check if you have right class
   switch (target) {
     case 'all':
@@ -159,10 +159,6 @@ function filterButton(e) {
       filterBtns[3].classList.remove('active')
       filterBtns[4].classList.remove('active')
       // Set display none
-      for (let i = 0; i < menuDiv.children.length; i++) {
-        const myChildren = menuDiv.children[i];
-        myChildren.style.display = 'auto';
-      }
       break;
       case 'breakfast':
         // Give class active
@@ -172,10 +168,6 @@ function filterButton(e) {
         filterBtns[3].classList.remove('active')
         filterBtns[4].classList.remove('active')
         // Set display none
-        for (let i = 0; i < menuDiv.children.length; i++) {
-          const myChildren = menuDiv.children[i];
-          myChildren.style.display = 'auto';
-        }
         break;
         case 'lunch':
           // Give class active
@@ -185,10 +177,6 @@ function filterButton(e) {
           filterBtns[3].classList.remove('active')
           filterBtns[4].classList.remove('active')
           // Set display none
-          for (let i = 0; i < menuDiv.children.length; i++) {
-            const myChildren = menuDiv.children[i];
-            myChildren.style.display = 'auto';
-          }
           break;
           case 'shakes':
             // Give class active
@@ -198,10 +186,6 @@ function filterButton(e) {
             filterBtns[3].classList.add('active')
             filterBtns[4].classList.remove('active')
             // Set display none
-            for (let i = 0; i < menuDiv.children.length; i++) {
-              const myChildren = menuDiv.children[i];
-              myChildren.style.display = 'auto';
-            }
             break;
             case 'dinner':
               // Give class active
@@ -211,10 +195,6 @@ function filterButton(e) {
               filterBtns[3].classList.remove('active')
               filterBtns[4].classList.add('active')
               // Set display none
-              for (let i = 0; i < menuDiv.children.length; i++) {
-                const myChildren = menuDiv.children[i];
-                myChildren.style.display = 'auto';
-              }
               break;
   }
 }
