@@ -138,28 +138,83 @@ for (let i = 0; i < menu.length; i++) {
   menuHeaderEl.appendChild(menuPriceEl)
 }
 
-filterBtns.forEach((button) => {
-  button.addEventListener('click', filterButton(button))
-});
+for (let i = 0; i < filterBtns.length; i++) {
+  const myFilterBtn = filterBtns[i];
+  myFilterBtn.addEventListener('click', filterButton)
+}
 
-function filterButton(button) {
-  switch (button.classList.contains) {
+
+function filterButton(e) {
+  // Get class of target which you clicked on
+  const target = e.target.classList[1];
+  const breakfastItem = document.querySelector('breakfast');
+  console.log(breakfastItem);
+  // Check if you have right class
+  switch (target) {
     case 'all':
-      filterBtns.filter(filterBtn => button.classList.contains('all'));
+      // Give class active
+      filterBtns[0].classList.add('active')
+      filterBtns[1].classList.remove('active')
+      filterBtns[2].classList.remove('active')
+      filterBtns[3].classList.remove('active')
+      filterBtns[4].classList.remove('active')
+      // Set display none
+      for (let i = 0; i < menuDiv.children.length; i++) {
+        const myChildren = menuDiv.children[i];
+        myChildren.style.display = 'auto';
+      }
       break;
       case 'breakfast':
-      filterBtns.filter(filterBtn => button.classList.contains('breakfast'));
-      break;
-      case 'lunch':
-      filterBtns.filter(filterBtn => button.classList.contains('lunch'));
-      break;
-      case 'shakes':
-      filterBtns.filter(filterBtn => button.classList.contains('shakes'));
-      break;
-      case 'dinner':
-      filterBtns.filter(filterBtn => button.classList.contains('dinner'));
-      break;
-    default:
-      break;
+        // Give class active
+        filterBtns[0].classList.remove('active')
+        filterBtns[1].classList.add('active')
+        filterBtns[2].classList.remove('active')
+        filterBtns[3].classList.remove('active')
+        filterBtns[4].classList.remove('active')
+        // Set display none
+        for (let i = 0; i < menuDiv.children.length; i++) {
+          const myChildren = menuDiv.children[i];
+          myChildren.style.display = 'auto';
+        }
+        break;
+        case 'lunch':
+          // Give class active
+          filterBtns[0].classList.remove('active')
+          filterBtns[1].classList.remove('active')
+          filterBtns[2].classList.add('active')
+          filterBtns[3].classList.remove('active')
+          filterBtns[4].classList.remove('active')
+          // Set display none
+          for (let i = 0; i < menuDiv.children.length; i++) {
+            const myChildren = menuDiv.children[i];
+            myChildren.style.display = 'auto';
+          }
+          break;
+          case 'shakes':
+            // Give class active
+            filterBtns[0].classList.remove('active')
+            filterBtns[1].classList.remove('active')
+            filterBtns[2].classList.remove('active')
+            filterBtns[3].classList.add('active')
+            filterBtns[4].classList.remove('active')
+            // Set display none
+            for (let i = 0; i < menuDiv.children.length; i++) {
+              const myChildren = menuDiv.children[i];
+              myChildren.style.display = 'auto';
+            }
+            break;
+            case 'dinner':
+              // Give class active
+              filterBtns[0].classList.remove('active')
+              filterBtns[1].classList.remove('active')
+              filterBtns[2].classList.remove('active')
+              filterBtns[3].classList.remove('active')
+              filterBtns[4].classList.add('active')
+              // Set display none
+              for (let i = 0; i < menuDiv.children.length; i++) {
+                const myChildren = menuDiv.children[i];
+                myChildren.style.display = 'auto';
+              }
+              break;
   }
 }
